@@ -4,7 +4,7 @@
       <div class="card-header">
         <%= link_to car.brand, car_path(car), class: "title" %>
         <div class="subtitle"><%= car.model %></div>
-        <div class="timestamp"><%= car.created_at %></div>
+        <div class="timestamp"><%= car.created_at.strftime("%a %b %-d at %l:%M %p") %></div>
       </div>
 
       <div class="card-image">

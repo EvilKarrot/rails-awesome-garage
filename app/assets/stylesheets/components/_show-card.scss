@@ -1,0 +1,112 @@
+.car-show-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 50vh;
+}
+
+.car-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.car-image-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  .car-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .favourite {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    color: whitesmoke;
+    filter: drop-shadow(0 0 2px black);
+    font-weight: bold;
+  }
+}
+
+.new_favourite {
+  position: absolute;
+  top: -5px;
+  right: 0px;
+}
+
+
+.car-details {
+  padding: 1.5rem;
+
+  .car-brand {
+    color: #d32f2f;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .car-model {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0.5rem 0;
+  }
+
+  .car-specs {
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+
+    .spec-item {
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+.car-reviews {
+  padding: 1rem 1.5rem;
+
+  .review {
+    border-bottom: 1px solid #5f5f5f90;
+    padding: 10px 0;
+  }
+
+  .review:first-child {
+    border-top: 1px solid #5f5f5f90;
+  }
+}
+
+.star-rating {
+  direction: rtl;
+  font-size: 2rem;
+  unicode-bidi: bidi-override;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  padding: 0 5px;
+  transition: color 0.2s;
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #f5b301;
+}
+
+.fa-star{
+  color: #f5b301
+}

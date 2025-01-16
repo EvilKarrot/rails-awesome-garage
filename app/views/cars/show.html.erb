@@ -1,34 +1,53 @@
-<h1><%= @car.model %></h1>
+<div class="car-show-container">
+  <div class="car-card">
+    <div class="car-image-container">
+      <%= image_tag @car.img_url, class: "car-image" %>
+      <div class="favourite">
+        <% if @car.favourites.any? %>
+          <p>This car is parked in your garage!</p>
+        <% else %>
+          <%= simple_form_for [@car, @favourite] do |f| %>
+            <%= f.input :car_id, as: :hidden, input_html: { value: @car.id } %>
+            <%= f.submit "Add to favourites" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="car-details">
+        <h1 class="car-brand"><%= @car.brand %></h1>
+        <h2 class="car-model"><%= @car.model %></h2>
 
-<% if @car.favourites.any? %>
-  <p>Added to favourites!</p>
-<% else %>
-  <%= simple_form_for [@car, @favourite] do |f| %>
-    <%= f.input :car_id, as: :hidden, input_html: { value: @car.id } %>
-    <%= f.submit "Add to favourites" %>
-  <% end %>
-<% end %>
-<%= image_tag(@car.img_url) %>
-
-
-<h2>Reviews:</h2>
-
-<% @car.reviews.each do |review| %>
-  <%= review.rating %>
-  <%= review.comment %>
-<% end %>
-
-<%= simple_form_for [@car, @review] do |f| %>
-  <%= f.input :comment, lable: "Add a review:" %>
-  <div class="star-rating">
-    <% 5.downto(1) do |i| %>
-      <%= f.radio_button :rating, i, id: "star#{i}" %>
-      <label for="star<%= i %>" title="<%= i %> stars">
-        &#9733;
-      </label>
-    <% end %>
+        <div class="car-specs">
+          <div class="spec-item"><%= @car.fuel %></div>
+          <div class="spec-item"><%= @car.year %></div>
+        </div>
+      </div>
+      <div class="m-3">
+        <%= simple_form_for [@car, @review], html: { class: "favourite-form" } do |f| %>
+          <%= f.input :comment, placeholder: "Comment here...", label: false %>
+          <div class="star-rating">
+            <% 5.downto(1) do |i| %>
+              <%= f.radio_button :rating, i, id: "star#{i}" %>
+              <label for="star<%= i %>" title="<%= i %> stars">
+                &#9733;
+              </label>
+            <% end %>
+          </div>
+          <%= f.submit "Send" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="car-reviews">
+      <% @car.reviews.each do |review| %>
+        <div class="review">
+          <p><%= review.comment %> -
+          <% review.rating.times do %>
+            <i>⭐</i>
+          <% end %>
+          </p>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <%= f.submit "Submit Review" %>
-<% end %>
-
-<%= link_to "Back", root_path %>
+</div>
