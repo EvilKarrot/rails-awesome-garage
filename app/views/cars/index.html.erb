@@ -1,0 +1,27 @@
+<% @cars.each do |car| %>
+  <div class="card-container">
+    <div class="custom-card">
+      <div class="card-header">
+        <%= link_to car.brand, car_path(car), class: "title" %>
+        <div class="subtitle"><%= car.model %></div>
+        <div class="timestamp"><%= car.created_at %></div>
+      </div>
+
+      <div class="card-image">
+        <%= link_to car_path(car) do %>
+          <%= image_tag(car.img_url) %>
+        <% end %>
+      </div>
+
+      <p class="user-badge"><%= car.owner.nickname %></p>
+
+      <div class="card-footer">
+        <div class="comment-section">
+          <%= link_to car_path(car), class: "comment-button" do %>
+            <i class="fa-regular fa-comment"></i> Comment
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

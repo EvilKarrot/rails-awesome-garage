@@ -1,0 +1,7 @@
+<h1>My Garage:</h1>
+
+<ul>
+  <% @favourites.each do |fav| %>
+    <li><%= link_to fav.car.model, car_path(fav.car.id) %></li>
+  <% end %>
+</ul>

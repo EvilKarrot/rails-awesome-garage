@@ -1,0 +1,123 @@
+// Custom variables
+$card-border-radius: 0.5rem;
+$card-padding: 1.25rem;
+$title-color: #d32f2f;
+$subtitle-color: #212121;
+$timestamp-color: #757575;
+$comment-bg: #f5f5f5;
+$card-max-width: 600px;
+$ferrari-red: #d32f2f;
+$comment-text-color: #9e9e9e;  // Lighter grey for comment text
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.custom-card {
+  background: #ffffff;
+  border-radius: $card-border-radius;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  overflow: hidden;
+  width: 100%;
+  max-width: $card-max-width;
+  position: relative;  // Added for absolute positioning of user badge
+
+  .card-header {
+    padding: $card-padding;
+    border-bottom: none;
+    background: none;
+
+    .title {
+      color: $title-color;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      text-decoration: none;
+
+      &:hover {
+        color: darken($title-color, 10%);
+      }
+    }
+
+    .subtitle {
+      color: $subtitle-color;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timestamp {
+      color: $timestamp-color;
+      font-size: 0.875rem;
+    }
+  }
+
+  .card-image {
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .user-badge {
+    position: absolute;
+    right: 1rem;
+    bottom: calc(#{$card-padding} + 0.7rem);
+    background-color: $ferrari-red;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    z-index: 2;
+
+    &:hover {
+      background-color: darken($ferrari-red, 10%);
+    }
+  }
+
+  .card-footer {
+    padding: $card-padding;
+    background: $comment-bg;
+    border-top: none;
+
+    .comment-section {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .comment-button {
+        color: $comment-text-color;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        .fa-comment {
+          margin-right: 0.5rem;
+          font-size: 1rem;
+          color: $comment-text-color;
+        }
+
+        &:hover {
+          color: darken($comment-text-color, 15%);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    max-width: 100%;
+    margin: 1rem;
+  }
+}
