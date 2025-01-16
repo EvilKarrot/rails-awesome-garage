@@ -1,0 +1,65 @@
+.garage-container {
+  margin: auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-product img {
+  height: 100%;
+  max-width: 225px;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+  width: 100%;
+}
+
+.garage-header {
+  font-weight: bolder;
+  color: #d32f2f;
+  font-size: larger;
+}
+
+.garage-brand {
+  color: #d32f2f;
+  font-weight: bolder;
+}
+
+.garage-model {
+  font-weight: bolder;
+  color: rgb(68, 68, 68);
+}
+
+.garage-delete {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.fa-trash {
+  color: rgba(68, 68, 68, 0.822);
+}

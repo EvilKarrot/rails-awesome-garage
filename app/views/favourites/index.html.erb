@@ -1,7 +1,25 @@
-<h1>My Garage:</h1>
 
-<ul>
+<div class="w-50 m-auto">
+  <h1 class="mb-4 mt-5 garage-header">My Garage</h1>
   <% @favourites.each do |fav| %>
-    <li><%= link_to fav.car.model, car_path(fav.car.id) %></li>
+    <div class="garage-container">
+      <div class="card-product">
+        <%= image_tag fav.car.img_url %>
+        <div class="card-product-infos">
+          <div class="garage-brand">
+            <%= fav.car.brand %>
+          </div>
+          <div class="garage-model">
+            <%= fav.car.model %>
+          </div>
+          <div class="garage-delete">
+            <p><%= fav.car.year %> | <%= fav.car.fuel %></p>
+            <%= link_to favourite_path(fav), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-trash secondary"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

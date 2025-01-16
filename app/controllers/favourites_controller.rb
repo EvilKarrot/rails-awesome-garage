@@ -12,6 +12,12 @@ class FavouritesController < ApplicationController
     redirect_to car_path(@car)
   end
 
+  def destroy
+    @favourite = Favourite.find(params[:id])
+    @favourite.destroy
+    redirect_to favourites_path
+  end
+
   private
 
   def favourite_params
