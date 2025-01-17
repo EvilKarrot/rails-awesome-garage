@@ -15,8 +15,10 @@
 }
 
 .card-product img {
-  height: 100%;
+  height: 120px;
   max-width: 225px;
+  min-width: 225px;
+  object-fit: cover;
 }
 
 .card-product h2 {
@@ -47,11 +49,13 @@
 .garage-brand {
   color: #d32f2f;
   font-weight: bolder;
+  text-decoration: none;
 }
 
 .garage-model {
   font-weight: bolder;
   color: rgb(68, 68, 68);
+  text-decoration: none;
 }
 
 .garage-delete {

@@ -8,15 +8,15 @@
         <% else %>
           <%= simple_form_for [@car, @favourite] do |f| %>
             <%= f.input :car_id, as: :hidden, input_html: { value: @car.id } %>
-            <%= f.submit "Add to favourites" %>
+            <%= f.submit "Add to your Garage!" %>
           <% end %>
         <% end %>
       </div>
     </div>
     <div class="d-flex justify-content-between">
       <div class="car-details">
-        <h1 class="car-brand"><%= @car.brand %></h1>
-        <h2 class="car-model"><%= @car.model %></h2>
+        <h1 class="garage-brand"><%= @car.brand %></h1>
+        <h2 class="garage-model"><%= @car.model %></h2>
 
         <div class="car-specs">
           <div class="spec-item"><%= @car.fuel %></div>
